@@ -1,0 +1,64 @@
+// Variables
+$font-family-general: 'General Sans';
+$font-family-clash: 'Clash Grotesk';
+$midnight: #171e27;
+$white: #ffffff;
+
+// Global
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-family: $font-family-general;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: $midnight;
+	background-color: $white;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	min-height: 100vh;
+
+	::selection {
+		background-color: rgba($midnight, 1);
+		color: $white;
+	}
+}
+
+@layer components {
+	.container {
+		max-width: 1520px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+}
+
+@layer utilities {
+	.font-clash {
+		font-family: $font-family-clash;
+	}
+}
+
+@layer base {
+	h1 {
+		font-size: clamp(36px, 5vw, 72px);
+		line-height: 1;
+
+		@media screen and (max-width: 1024px) {
+			font-size: clamp(36px, 10vw, 72px);
+		}
+	}
+}
